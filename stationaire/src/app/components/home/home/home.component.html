@@ -1,0 +1,80 @@
+<form role="form" [formGroup]="form" novalidate>
+    <div>
+        <app-form-group label="Select College" for="college" *ngIf="$colleges | async as colleges">
+            <select class="form-control" name="College" id="college" formControlName="college">
+                <option *ngFor="let t of colleges" [value]="t">{{t}}</option>
+            </select>
+        </app-form-group>
+    </div>
+
+    <div>
+        <input type="text" class="mt-3 form-control" id="search" formControlName="search" />
+    </div>
+    
+    <button type="button" 
+    class="btn mt-3 btn-primary btn-block"
+    [disabled]="!form.valid" (click)="search()">
+    Search
+</button>
+
+
+<div *ngIf="form.valid">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Title
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Description
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of $items | async" (click)="open(item, template)">
+                <td>
+                    {{item.name}}
+                </td>
+                <td>
+                    {{item.title}}
+                </td>
+                <td>
+                    {{item.price}}
+                </td>
+                <td>
+                    {{item.description}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+
+
+</form>
+
+<ng-template #template>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Modal</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <p>
+            {{user.name}}
+        </p>
+        <p>
+            {{user.email}}
+        </p>
+        <p>
+            {{user.mobile}}
+        </p>
+    </div>
+  </ng-template>

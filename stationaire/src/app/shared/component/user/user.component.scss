@@ -1,0 +1,22 @@
+
+    .profile, img
+    {
+        max-width: 28px;
+        max-height: 28px;
+        border-radius: 16px;
+    }
+    .name
+    {
+        font-size: 12 px;
+        margin-left: 6px;
+    }
+
+.isActive
+{
+    border: 2px solid #00FF00;
+}
+
+.isInActive
+{
+    border: 2px solid #C0C0C0;
+}

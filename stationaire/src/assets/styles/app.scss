@@ -1,0 +1,12 @@
+@import "../../../node_modules/ngx-bootstrap/datepicker/bs-datepicker.css";
+@import "./base/bootstrap.css";
+
+// @import "//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css";
+
+$fa-font-path: "~font-awesome/fonts";
+
+@import "~font-awesome/scss/font-awesome";
+
+body{
+    overflow-x: hidden;
+}

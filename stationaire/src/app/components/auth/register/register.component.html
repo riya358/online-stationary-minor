@@ -1,0 +1,91 @@
+<div class="row align-items-center justify-content-center" style="height:90vh">
+    <div class="col-lg-4 col-md-6 col-10 shadow-sm p-3 mb-5 rounded border">
+        <h2 class="text-center">
+            Register User
+        </h2>
+        <form role="form" [formGroup]="form" (ngSubmit)="onSubmit($event)" novalidate>
+            
+            <div>
+                <app-form-group label="Title" for="title">
+                    <select class="form-control" name="Title" id="Title" formControlName="title">
+                        <option *ngFor="let t of titles" [value]="t">{{t}}</option>
+                    </select>
+                </app-form-group>
+            </div>
+
+            <div>
+                <app-form-group label="Full Name" for="name">
+                    <input type="text" class="form-control" id="name" formControlName="name" />
+                </app-form-group>
+                <app-validation-msg [field]="'Full Name'" [isShow]="(formControl.name.touched) && formControl.name.errors?.required"></app-validation-msg>
+            </div>
+
+            <div>
+                <app-form-group label="College" for="college">
+                    <input type="text" class="form-control" id="college" formControlName="college" />
+                </app-form-group>
+                <app-validation-msg [field]="'College'" [isShow]="(formControl.college.touched) && formControl.college.errors?.required"></app-validation-msg>
+            </div>
+
+            <div>
+                <app-form-group label="City" for="city">
+                    <input type="text" class="form-control" id="city" formControlName="city" />
+                </app-form-group>
+                <app-validation-msg [field]="'City'" [isShow]="(formControl.city.touched) && formControl.city.errors?.required"></app-validation-msg>
+            </div>
+
+            <div>
+                <app-form-group label="Mobile" for="mobile">
+                    <input type="text" class="form-control" id="mobile" formControlName="mobile" />
+                </app-form-group>
+                <app-validation-msg [field]="'Mobile'" [isShow]="(formControl.mobile.touched) && formControl.mobile.errors?.required"></app-validation-msg>
+            </div>
+            
+            <div>
+                <app-form-group label="Email" for="email">
+                    <input type="text" class="form-control" id="email" formControlName="email" />
+                </app-form-group>
+                <app-validation-msg [field]="'Email'" [isShow]="(formControl.email.touched) && formControl.email.errors?.required"></app-validation-msg>
+                <app-validation-msg [type]="'Email'" [isShow]="(formControl.email.touched) && formControl.email.errors?.email"></app-validation-msg>
+            </div>
+
+
+
+            <div>
+                <app-form-group label="Password" for="password">
+                    <input type="password" class="form-control" id="password" formControlName="password" />
+                </app-form-group>  
+                <app-validation-msg [field]="'Password'" [isShow]="(formControl.password.touched ) && formControl.password.errors?.required"></app-validation-msg>
+            </div>
+
+            <div>
+                <app-form-group label="Renter Password" for="repassword">
+                    <input type="password" class="form-control" id="repassword" formControlName="repassword" />
+                </app-form-group>  
+                <app-validation-msg [field]="'Renter Password'" [isShow]="(formControl.repassword.touched ) && formControl.repassword.errors?.required"></app-validation-msg>
+                <app-validation-msg [type]="'Password not same'" [isShow]="(formControl.password.touched ) && (formControl.repassword.touched ) && formControl.repassword.value != formControl.password.value  "></app-validation-msg>
+            </div>
+
+            <div class="mt-2">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="agreeToTerms" formControlName="isAgree">
+                    <label class="form-check-label" for="agreeToTerms">
+                      I agree to terms & conditions
+                    </label>
+                  </div>
+                  <br/>                  
+            </div>
+        
+            <button type="submit" 
+                    class="btn btn-primary btn-block"
+                    [disabled]="!form.valid || isAgree == false">
+                    Create Account
+            </button>
+        
+            <div class="mt-3">
+                Already register? <a href="auth/login">Login</a> 
+            </div>
+        </form>
+        
+    </div>
+</div>

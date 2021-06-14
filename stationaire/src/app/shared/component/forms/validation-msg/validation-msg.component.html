@@ -1,0 +1,7 @@
+<span class="text-danger validation-msg" *ngIf="isShow">
+    <span *ngIf="!type">
+        <span *ngIf="field"> {{ field }} is </span> Required field
+    </span>
+
+    <span *ngIf="type">{{type}}</span>
+</span>

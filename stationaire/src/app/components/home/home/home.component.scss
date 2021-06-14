@@ -1,0 +1,18 @@
+.chat-sidebar
+{
+    background: #343a40;
+    color: rgba(255,255,255,.55);
+
+    > div{
+        background: #33373b;//#25282c;
+        text-align: center;
+        font-size: x-large;
+        padding: 6px;
+    }
+}
+.chat-box {
+    position: relative;
+    overflow-y: auto;
+    max-width: 100%;
+    overflow-x: hidden;
+}

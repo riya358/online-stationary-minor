@@ -1,0 +1,10 @@
+<div class="form-group" [class.has-error]="hasError">
+    <label class="control-label fs-bold" *ngIf="label" [for]="for">
+      {{ label }}
+    </label>
+  
+    <div>
+      <ng-content></ng-content>
+    </div>
+  </div>
+  

@@ -1,0 +1,42 @@
+<div class="row align-items-center justify-content-center" style="height:90vh">
+    <div class="col-lg-4 col-md-6 col-10 shadow-sm p-3 mb-5 rounded border">
+        <form role="form" [formGroup]="form" (ngSubmit)="onSubmit($event)" novalidate>
+            <div>
+                <app-form-group label="Email" for="email">
+                    <input type="text" class="form-control" id="email" formControlName="email" />
+                </app-form-group>
+                <app-validation-msg [field]="'Email'" [isShow]="(formControl.email.touched) && formControl.email.errors?.required"></app-validation-msg>
+                <app-validation-msg [type]="'Not valid Email'" [isShow]="(formControl.email.touched) && formControl.email.errors?.email"></app-validation-msg>
+            </div>
+
+            <div>
+                <app-form-group label="Password" for="password">
+                    <input type="password" class="form-control" id="password" formControlName="password" />
+                </app-form-group>  
+                <app-validation-msg [field]="'Password'" [isShow]="(formControl.password.touched ) && formControl.password.errors?.required"></app-validation-msg>
+            </div>
+
+            <div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="rememberPassword">
+                    <label class="form-check-label" for="rememberPassword">
+                      Remember me on this device
+                    </label>
+                  </div>
+                  <br/>                  
+            </div>
+
+        
+            <button type="submit" 
+                    class="btn btn-primary btn-block"
+                    [disabled]="!form.valid">
+                    Login
+            </button>
+        
+            <div class="mt-3">
+                Don't have an account ? <a href="auth/register">Create Account</a> 
+            </div>
+        </form>
+        
+    </div>
+</div>
